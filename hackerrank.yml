@@ -1,0 +1,14 @@
+version: 1.0
+configuration:
+  has_webserver: true
+  scoring:
+    command: gotestsum --junitfile result.xml
+    files:
+      - result.xml
+  ide_config:
+    default_open_files:
+      - main.go
+    project_menu:
+      run: go mod download && go run main.go
+      install: go mod download
+      test: gotestsum --junitfile result.xml
